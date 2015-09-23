@@ -1,0 +1,1147 @@
+﻿<Page
+    x:Name="pageRoot"
+    x:Class="App2.Page1"
+    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App2"
+    xmlns:common="using:App2.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
+        <x:String x:Key="AppName">My Application</x:String>
+        <Style x:Key="ButtonStyle2" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Image RenderTransformOrigin="0.5,0.5" Source="Line.png" Stretch="Fill" UseLayoutRounding="False" d:LayoutRounding="Auto">
+                                <Image.RenderTransform>
+                                    <CompositeTransform SkewX="8.175" ScaleY="-1" TranslateX="-0.409"/>
+                                </Image.RenderTransform>
+                            </Image>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ButtonStyle1" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <ContentPresenter/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontWeight" Value="Light"/>
+            <Setter Property="Foreground" Value="#FF0A538F"/>
+        </Style>
+        <Style x:Key="ButtonStyle3" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Image x:Name="Superman_Logo" Source="Superman_t.png" Stretch="Fill"/>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content=""/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ButtonStyle4" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Image x:Name="Batman_Logo" Source="Batman-T.png" Stretch="Fill" RenderTransformOrigin="0.519,0.564">
+                                <Image.Projection>
+                                    <PlaneProjection/>
+                                </Image.Projection>
+                                <Image.RenderTransform>
+                                    <CompositeTransform/>
+                                </Image.RenderTransform>
+                            </Image>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content=""/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ButtonStyle5" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <ContentPresenter/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#FFF01212"/>
+        </Style>
+        <Style x:Key="ButtonStyle7" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Image Source="Batman-T.png" Stretch="Fill"/>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content=""/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ButtonStyle6" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Button Content="Button" Margin="455,54,44,24" Style="{StaticResource ButtonStyle7}"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <!--
+        This grid acts as a root panel for the page that defines two rows:
+        * Row 0 contains the back button and page title
+        * Row 1 contains the rest of the page layout
+    -->
+    <Grid Background="White">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!-- Back button and page title -->
+        <!-- Back button and page title -->
+        <!-- Back button and page title -->
+        <!-- Back button and page title -->
+        <!-- Back button and page title -->
+        <Image Source="Background.png" Stretch="Fill" Grid.RowSpan="2" Margin="0,-2,0,2"/>
+        <Image x:Name="bat_wins" Margin="131,31,131,188" Source="Batman-T.png" Stretch="Fill" Grid.Row="1" Opacity="0"/>
+        <Image x:Name="super_wins" Margin="300,123,294,84" Source="Superman_t.png" Stretch="Fill" Grid.RowSpan="2" Opacity="0"/>
+        <Button x:Name="backButton" Margin="39,59,0,0" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
+        	Style="{StaticResource NavigationBackButtonNormalStyle}"
+        	VerticalAlignment="Top"
+        	AutomationProperties.Name="Back"
+        	AutomationProperties.AutomationId="BackButton"
+        	AutomationProperties.ItemType="Navigation Button"/>
+        <Grid
+    Width="755" VerticalAlignment="Center" Grid.RowSpan="2" Margin="339,10,272,162" Height="596" HorizontalAlignment="Center">
+            <Grid.Projection>
+                <PlaneProjection/>
+            </Grid.Projection>
+            <Image x:Name="b_bg" Margin="750,444,-222,60" Source="curr_Turn.png" Stretch="Fill" Opacity="0"/>
+            <Image x:Name="s_bg" Margin="-302,444,830,60" Source="curr_Turn.png" Stretch="Fill"/>
+            <TextBlock x:Name="bscore" HorizontalAlignment="Left" Height="112" Margin="795,282,-133,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="93" Foreground="#FFF01212" FontSize="93.333" TextAlignment="Center" FontWeight="Light"/>
+            <TextBlock x:Name="sscore" HorizontalAlignment="Left" Height="112" Margin="-238,282,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="93" Foreground="#FF4079A8" FontSize="93.333" TextAlignment="Center" FontWeight="Light"/>
+            <Button x:Name="Batman_Logo" Content="" Margin="667,573,-272,-110" Style="{StaticResource ButtonStyle4}"/>
+            <Button x:Name="Superman_Logo" Margin="-311,548,835,-120" Style="{StaticResource ButtonStyle3}" HorizontalAlignment="Stretch"/>
+            <Image x:Name="stile_15" Margin="24,394,607,96" Source="Blue_Tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="stile_30" Margin="149,533,482,-43" Source="Blue_Tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="stile_27" Margin="275,393,356,97" Source="Blue_Tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="stile_28" Margin="275,501,356,-11" Source="Blue_Tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Opacity="0"/>
+            <Image x:Name="stile_9" Margin="398,254,230,233" Source="Blue_Tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="stile_20" Margin="401,363,233,127" Source="Blue_Tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Opacity="0"/>
+            <Image x:Name="stile_4" Margin="272,113,356,374" Source="Blue_Tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="stile_25" Margin="397,531,230,-46" Source="Blue_Tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="stile_10" Margin="275,222,356,268" Source="Blue_Tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Opacity="0"/>
+            <Image x:Name="stile_23" Margin="523,393,104,95" Source="Blue_Tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="stile_13" Margin="23,221,608,266" Source="Blue_Tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Opacity="0"/>
+            <Image x:Name="stile_8" Margin="525,222,106,266" Source="Blue_Tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Opacity="0"/>
+            <Image x:Name="stile_1" Margin="149,84,482,403" Source="Blue_Tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Opacity="0"/>
+            <Image x:Name="stile_5" Margin="399,85,232,405" Source="Blue_Tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Opacity="0"/>
+            <Image x:Name="stile_14" Margin="-33.496,312.322,649.498,185.802" Source="Blue_Tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="-90.752" ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="stile_29" Margin="191.682,449.192,425.517,42.792" Source="Blue_Tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="-90.752"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="stile_16" Margin="92.504,451.655,523.498,46.469" Source="Blue_Tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="-90.752" ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="stile_24" Margin="440.866,452.379,176.036,46.977" Source="Blue_Tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="-90.752"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="stile_26" Margin="343.17,450.989,272.832,47.135" Source="Blue_Tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="-90.752" ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="stile_22" Margin="563.87,311.422,49.533,185.487" Source="Blue_Tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="-90.752"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="stile_21" Margin="469.17,312.989,146.832,185.135" Source="Blue_Tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="-90.752" ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="stile_7" Margin="440.866,174.879,176.036,324.477" Source="Blue_Tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="-90.752"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="stile_6" Margin="343.17,173.489,272.832,324.635" Source="Blue_Tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="-90.752" ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="stile_3" Margin="191.216,172.876,425.218,323.974" Source="Blue_Tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="-90.752"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="stile_2" Margin="92.504,172.989,523.498,325.135" Source="Blue_Tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="-90.752" ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="stile_19" Margin="316.199,313.712,300.703,185.644" Source="Blue_Tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="-90.752"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="stile_18" Margin="218.503,312.322,397.499,185.802" Source="Blue_Tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="-90.752" ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="stile_11" Margin="150,252,481,232" Source="Blue_Tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="stile_17" Margin="149,361,482,126" Source="Blue_Tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Opacity="0"/>
+            <Image x:Name="stile_12" Margin="67.5,310.368,551.002,183.967" Source="Blue_Tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="-90.752"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="btile_17" Margin="149,363,482,126" Source="Yellow_tile_Final.png" Stretch="Fill" Opacity="0"/>
+            <Image x:Name="btile_28" Margin="275,501,356,-12" Source="Yellow_tile_Final.png" Stretch="Fill" Opacity="0"/>
+            <Image x:Name="btile_10" Margin="275,222,356,267" Source="Yellow_tile_Final.png" Stretch="Fill" Opacity="0"/>
+            <Image x:Name="btile_1" Margin="149,84,482,402" Source="Yellow_tile_Final.png" Stretch="Fill" Opacity="0"/>
+            <Image x:Name="btile_8" Margin="525,221,107,265" Source="Yellow_tile_Final.png" Stretch="Fill" Opacity="0"/>
+            <Image x:Name="btile_20" Margin="401,363,233,128" Source="Yellow_tile_Final.png" Stretch="Fill" Opacity="0"/>
+            <Image x:Name="btile_15" Margin="23,393,607,96" Source="Yellow_tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="btile_27" Margin="275,393,355,96" Source="Yellow_tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="btile_30" Margin="150,531,483,-45" Source="Yellow_tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="btile_25" Margin="398,529,232,-47" Source="Yellow_tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="btile_23" Margin="522,393,103,94" Source="Yellow_tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="btile_11" Margin="150,254,481,233" Source="Yellow_tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="btile_9" Margin="398,253,232,233" Source="Yellow_tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="btile_4" Margin="275,112,358,375" Source="Yellow_tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="btile_14" Margin="-32.997,312.88,648.011,187.11" Source="Yellow_tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="-89.934" ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="btile_18" Margin="218.003,313.38,397.011,186.61" Source="Yellow_tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="-89.934" ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="btile_21" Margin="467.628,311.754,147.386,185.987" Source="Yellow_tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="-89.934" ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="btile_16" Margin="92.005,451.881,521.01,48.109" Source="Yellow_tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="-89.934" ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="btile_26" Margin="339.291,452.557,269.296,48.785" Source="Yellow_tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="-89.93" ScaleY="-1.045" SkewX="0.006" ScaleX="0.957"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="btile_2" Margin="91.118,173.998,523.373,324.224" Source="Yellow_tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="-89.935" ScaleY="-0.99" SkewX="-0.001" ScaleX="1.011"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="btile_6" Margin="342.118,172.998,272.373,325.224" Source="Yellow_tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="-89.935" ScaleY="-0.99" SkewX="-0.001" ScaleX="1.011"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="btile_7" Margin="439.066,172.998,175.321,325.224" Source="Yellow_tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="-90.065" ScaleY="0.991" SkewX="0.001" ScaleX="1.01"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="btile_3" Margin="189.733,174.331,424.654,323.891" Source="Yellow_tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="-90.065" ScaleY="0.991" SkewX="0.001" ScaleX="1.01"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="btile_12" Margin="64.566,312.998,549.821,185.224" Source="Yellow_tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="-90.065" ScaleY="0.991" SkewX="0.001" ScaleX="1.01"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="btile_19" Margin="315.066,311.998,299.321,186.224" Source="Yellow_tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="-90.065" ScaleY="0.991" SkewX="0.001" ScaleX="1.01"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="btile_29" Margin="189.566,451.498,424.821,46.724" Source="Yellow_tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="-90.065" ScaleY="0.991" SkewX="0.001" ScaleX="1.01"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="btile_24" Margin="439.066,449.998,175.321,48.224" Source="Yellow_tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="-90.065" ScaleY="0.991" SkewX="0.001" ScaleX="1.01"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="btile_22" Margin="565.566,312.998,48.821,185.224" Source="Yellow_tile_Final.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="-90.065" ScaleY="0.991" SkewX="0.001" ScaleX="1.01"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="btile_5" Margin="396,85,232,407" Source="Yellow_tile_Final.png" Stretch="Fill" Opacity="0"/>
+            <Image x:Name="btile_13" Margin="23,222,607,266" Source="Yellow_tile_Final.png" Stretch="Fill" Opacity="0"/>
+            <Image x:Name="blogo_13" Margin="40,263,624,299" Source="Batman-T.png" Stretch="Fill" Opacity="0"/>
+            <Image x:Name="blogo_17" Margin="166,404,499,159" Source="Batman-T.png" Stretch="Fill" Opacity="0"/>
+            <Image x:Name="blogo_28" Margin="292,542,373,21" Source="Batman-T.png" Stretch="Fill" Opacity="0"/>
+            <Image x:Name="blogo_10" Margin="292,263,373,300" Source="Batman-T.png" Stretch="Fill" Opacity="0"/>
+            <Image x:Name="blogo_1" Margin="166,126,499,436" Source="Batman-T.png" Stretch="Fill" Opacity="0"/>
+            <Image x:Name="blogo_5" Margin="415,126,250,436" Source="Batman-T.png" Stretch="Fill" Opacity="0"/>
+            <Image x:Name="blogo_8" Margin="542,263,124,299" Source="Batman-T.png" Stretch="Fill" Opacity="0"/>
+            <Image x:Name="blogo_20" Margin="418,403,250,160" Source="Batman-T.png" Stretch="Fill" Opacity="0"/>
+            <Image x:Name="blogo_15" Margin="40,435,625,128" Source="Batman-T.png" Stretch="Fill" Opacity="0"/>
+            <Image x:Name="blogo_27" Margin="292,435,373,128" Source="Batman-T.png" Stretch="Fill" Opacity="0"/>
+            <Image x:Name="blogo_30" Margin="169,573,499,-12" Source="Batman-T.png" Stretch="Fill" Opacity="0"/>
+            <Image x:Name="blogo_25" Margin="415,576,250,-14" Source="Batman-T.png" Stretch="Fill" Opacity="0"/>
+            <Image x:Name="blogo_23" Margin="539,436,121,127" Source="Batman-T.png" Stretch="Fill" Opacity="0"/>
+            <Image x:Name="blogo_11" Margin="166,296,499,267" Source="Batman-T.png" Stretch="Fill" Opacity="0"/>
+            <Image x:Name="blogo_9" Margin="415,296,250,266" Source="Batman-T.png" Stretch="Fill" Opacity="0"/>
+            <Image x:Name="blogo_4" Margin="292,155,376,408" Source="Batman-T.png" Stretch="Fill" Opacity="0"/>
+            <Image x:Name="blogo_14" Margin="-4,351,672,211" Source="Batman-T.png" Stretch="Fill" Opacity="0"/>
+            <Image x:Name="blogo_18" Margin="247,353,421,209" Source="Batman-T.png" Stretch="Fill" Opacity="0"/>
+            <Image x:Name="blogo_16" Margin="118,490,548,72" Source="Batman-T.png" Stretch="Fill" Opacity="0"/>
+            <Image x:Name="blogo_26" Margin="369,494,294,67" Source="Batman-T.png" Stretch="Fill" Opacity="0"/>
+            <Image x:Name="blogo_2" Margin="116,213,551,349" Source="Batman-T.png" Stretch="Fill" Opacity="0"/>
+            <Image x:Name="blogo_6" Margin="370,213,297,349" Source="Batman-T.png" Stretch="Fill" Opacity="0"/>
+            <Image x:Name="blogo_7" Margin="465,212,203,350" Source="Batman-T.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="blogo_3" Margin="214,213,454,349" Source="Batman-T.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="blogo_12" Margin="89,352,579,210" Source="Batman-T.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="blogo_19" Margin="343,351,325,211" Source="Batman-T.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="blogo_29" Margin="213,491,455,71" Source="Batman-T.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="blogo_24" Margin="464,489,204,73" Source="Batman-T.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="blogo_22" Margin="591,353,77,209" Source="Batman-T.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="blogo_21" Margin="497,353,171,209" Source="Batman-T.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="slogo_11" Margin="166,285,499,246" Source="Superman_t.png" Stretch="Fill" RenderTransformOrigin="0.626,0.477" Opacity="0"/>
+            <Image x:Name="slogo_10" Margin="294,250,376,287" Source="Superman_t.png" Stretch="Fill" Opacity="0"/>
+            <Image x:Name="slogo_1" Margin="169,119,501,419" Source="Superman_t.png" Stretch="Fill" RenderTransformOrigin="0.626,0.477" Opacity="0"/>
+            <Image x:Name="slogo_2" Margin="118,201,547,330" Source="Superman_t.png" Stretch="Fill" RenderTransformOrigin="0.626,0.477" Opacity="0"/>
+            <Image x:Name="slogo_3" Margin="215,201,461,338" Source="Superman_t.png" Stretch="Fill" RenderTransformOrigin="0.626,0.477" Opacity="0"/>
+            <Image x:Name="slogo_6" Margin="375,204,301,335" Source="Superman_t.png" Stretch="Fill" RenderTransformOrigin="0.626,0.477" Opacity="0"/>
+            <Image x:Name="slogo_7" Margin="469,201,207,338" Source="Superman_t.png" Stretch="Fill" RenderTransformOrigin="0.626,0.477" Opacity="0"/>
+            <Image x:Name="slogo_21" Margin="502,341,174,198" Source="Superman_t.png" Stretch="Fill" RenderTransformOrigin="0.626,0.477" Opacity="0"/>
+            <Image x:Name="slogo_22" Margin="595,341,81,198" Source="Superman_t.png" Stretch="Fill" RenderTransformOrigin="0.626,0.477" Opacity="0"/>
+            <Image x:Name="slogo_4" Margin="298,149,378,390" Source="Superman_t.png" Stretch="Fill" RenderTransformOrigin="0.626,0.477" Opacity="0"/>
+            <Image x:Name="slogo_5" Margin="422,117,254,422" Source="Superman_t.png" Stretch="Fill" RenderTransformOrigin="0.626,0.477" Opacity="0"/>
+            <Image x:Name="slogo_13" Margin="45,252,631,287" Source="Superman_t.png" Stretch="Fill" RenderTransformOrigin="0.626,0.477" Opacity="0"/>
+            <Image x:Name="slogo_14" Margin="-2,341,678,198" Source="Superman_t.png" Stretch="Fill" RenderTransformOrigin="0.626,0.477" Opacity="0"/>
+            <Image x:Name="slogo_12" Margin="92,341,584,198" Source="Superman_t.png" Stretch="Fill" RenderTransformOrigin="0.626,0.477" Opacity="0"/>
+            <Image x:Name="slogo_17" Margin="171,392,505,147" Source="Superman_t.png" Stretch="Fill" RenderTransformOrigin="0.626,0.477" Opacity="0"/>
+            <Image x:Name="slogo_18" Margin="252,343,424,196" Source="Superman_t.png" Stretch="Fill" RenderTransformOrigin="0.626,0.477" Opacity="0"/>
+            <Image x:Name="slogo_19" Margin="347,341,329,198" Source="Superman_t.png" Stretch="Fill" RenderTransformOrigin="0.626,0.477" Opacity="0"/>
+            <Image x:Name="slogo_9" Margin="421,290,255,249" Source="Superman_t.png" Stretch="Fill" RenderTransformOrigin="0.626,0.477" Opacity="0"/>
+            <Image x:Name="slogo_8" Margin="548,252,128,287" Source="Superman_t.png" Stretch="Fill" RenderTransformOrigin="0.626,0.477" Opacity="0"/>
+            <Image x:Name="slogo_15" Margin="51,428,625,111" Source="Superman_t.png" Stretch="Fill" RenderTransformOrigin="0.626,0.477" Opacity="0"/>
+            <Image x:Name="slogo_27" Margin="300,428,376,111" Source="Superman_t.png" Stretch="Fill" RenderTransformOrigin="0.626,0.477" Opacity="0"/>
+            <Image x:Name="slogo_16" Margin="123,485,553,54" Source="Superman_t.png" Stretch="Fill" RenderTransformOrigin="0.626,0.477" Opacity="0"/>
+            <Image x:Name="slogo_29" Margin="219,479,457,60" Source="Superman_t.png" Stretch="Fill" RenderTransformOrigin="0.626,0.477" Opacity="0"/>
+            <Image x:Name="slogo_20" Margin="422,392,254,147" Source="Superman_t.png" Stretch="Fill" RenderTransformOrigin="0.626,0.477" Opacity="0"/>
+            <Image x:Name="slogo_23" Margin="548,428,128,111" Source="Superman_t.png" Stretch="Fill" RenderTransformOrigin="0.626,0.477" Opacity="0"/>
+            <Image x:Name="slogo_26" Margin="375,479,301,60" Source="Superman_t.png" Stretch="Fill" RenderTransformOrigin="0.626,0.477" Opacity="0"/>
+            <Image x:Name="slogo_24" Margin="467,481,209,58" Source="Superman_t.png" Stretch="Fill" RenderTransformOrigin="0.626,0.477" Opacity="0"/>
+            <Image x:Name="slogo_28" Margin="296,533,380,6" Source="Superman_t.png" Stretch="Fill" RenderTransformOrigin="0.626,0.477" Opacity="0"/>
+            <Image x:Name="slogo_30" Margin="170,567,506,-28" Source="Superman_t.png" Stretch="Fill" RenderTransformOrigin="0.626,0.477" Opacity="0"/>
+            <Image x:Name="slogo_25" Margin="422,567,254,-28" Source="Superman_t.png" Stretch="Fill" RenderTransformOrigin="0.626,0.477" Opacity="0"/>
+            <Button x:Name="b12" Margin="3.995,246.026,0,334.974" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.339" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="8" VerticalAlignment="Center" HorizontalAlignment="Left" Click="click_b12" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-63.531"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b11" Margin="59,217,0,374" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="54" Height="15" VerticalAlignment="Center" Click="click_b11" Opacity="0.1"/>
+            <Button x:Name="b7" Margin="94.318,183.069,0,407.931" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.339" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b7" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-63.531"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b3" Margin="129.587,113.392,0,477.608" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.339" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b3" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-63.531"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b28" Margin="433,359,0,232" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="54" Height="15" VerticalAlignment="Center" Click="click_b28" Opacity="0.1"/>
+            <Button x:Name="b032" Margin="434.489,495.5,0,95.5" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="54.194" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b032" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-90.366"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b18" Margin="179,359,0,232" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="66" Height="15" VerticalAlignment="Center" Click="click_b18" Opacity="0.1"/>
+            <Button x:Name="b23" Margin="303,217,0,374" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="67" Height="15" VerticalAlignment="Center" Click="click_b23" Opacity="0.1"/>
+            <Button x:Name="b44" Margin="561,217,0,374" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="59" Height="15" VerticalAlignment="Center" Click="click_b44" Opacity="0.1"/>
+            <Button x:Name="b044" Margin="561,496,0,95" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="59" Height="15" VerticalAlignment="Center" Click="click_b044" Opacity="0.1"/>
+            <Button x:Name="b023" Margin="310,496,0,95" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="60" Height="15" VerticalAlignment="Center" Click="click_b023" Opacity="0.1"/>
+            <Button x:Name="b011" Margin="59,495,0,96" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="59" Height="15" VerticalAlignment="Center" Click="click_b011" Opacity="0.1"/>
+            <Button x:Name="b01" Margin="186,637,0,-46" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="59" Height="15" VerticalAlignment="Center" Click="click_b01" Opacity="0.1"/>
+            <Button x:Name="b039" Margin="433,637,0,-46" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="60" Height="15" VerticalAlignment="Center" Click="click_b039" Opacity="0.1"/>
+            <Button x:Name="b39" Margin="433,83,0,508" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="60" Height="15" VerticalAlignment="Center" Click="click_b39" Opacity="0.1"/>
+            <Button x:Name="b1" Margin="186,80,0,511" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="59" Height="15" VerticalAlignment="Center" Click="click_b1" Opacity="0.1"/>
+            <Button x:Name="b15" Margin="-29.167,320.876,0,270.124" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="66.237" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b15" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-62.81"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b017" Margin="130.959,391.414,0,199.586" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b017" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-62.81"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b08" Margin="96.55,458.511,0,132.489" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b08" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-62.81"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b06" Margin="219.561,598.726,0,-7.726" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b06" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-62.81"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b035" Margin="254.83,532.489,0,58.511" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b035" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-62.81"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b024" Margin="346.873,461.091,0,129.909" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b024" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-62.81"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b027" Margin="382.142,391.414,0,199.586" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b027" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-62.81"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b29" Margin="471.604,322.597,0,268.403" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b29" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-62.81"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b43" Margin="506.873,252.919,0,338.081" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b43" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-62.81"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b040" Margin="471.604,598.726,0,-7.726" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b040" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-62.81"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b042" Margin="506.013,529.049,0,61.951" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b042" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-62.81"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b045" Margin="598.916,461.091,0,129.909" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b045" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-62.81"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b048" Margin="634.188,391.414,0,199.586" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b048" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-62.81"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b19" Margin="220.421,322.597,0,268.403" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b19" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-62.81"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b22" Margin="254.83,252.919,0,338.081" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b22" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-62.81"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b34" Margin="344.292,182.382,0,408.618" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b34" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-62.81"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b38" Margin="379.565,112.704,0,478.296" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.006" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b38" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-62.81"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b013" Margin="19.131,407.758,0,183.242" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b013" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-33.116"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b49" Margin="560.081,357.866,0,233.134" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="54.193" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b49" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-90.366"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b32" Margin="434.489,217.65,0,373.35" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="54.194" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b32" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-90.366"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b10" Margin="183.306,217.65,0,373.35" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="54.194" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b10" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-90.366"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b16" Margin="59.435,357.866,0,233.134" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="54.194" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b16" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-90.366"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b010" Margin="183.306,496.36,0,94.64" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="54.194" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b010" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-90.366"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b26" Margin="309.758,354.424,0,236.576" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="54.194" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b26" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-90.366"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b14" Margin="81.066,307.113,0,283.887" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b14" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-33.116"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b9" Margin="143.002,267.543,0,323.457" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b9" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-33.116"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b5" Margin="205.798,167.758,0,423.242" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b5" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-33.116"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b36" Margin="270.314,126.468,0,464.532" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b36" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-33.116"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b020" Margin="205.798,445.607,0,145.393" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b020" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-33.116"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b021" Margin="268.593,406.038,0,184.962" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b021" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-33.116"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b25" Margin="331.389,306.253,0,284.747" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b25" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-33.116"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b31" Margin="395.905,264.962,0,326.038" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b31" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-33.116"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b04" Margin="143.862,547.973,0,43.027" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b04" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-33.116"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b41" Margin="456.12,166.898,0,424.102" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b41" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-33.116"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b037" Margin="331.389,584.963,0,6.037" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b037" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-33.116"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b033" Margin="394.185,545.392,0,45.608" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b033" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-33.116"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b030" Margin="456.98,445.607,0,145.393" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b030" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-33.116"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b047" Margin="521.497,404.317,0,186.683" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.006" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b047" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-33.116"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b46" Margin="581.712,306.253,0,284.747" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.006" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b46" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-33.116"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b015" Margin="-28.306,389.693,0,201.307" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="66.236" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b015" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-117.764"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b012" Margin="7.823,460.231,0,130.769" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="66.236" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b012" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-117.764"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b8" Margin="96.425,251.199,0,339.801" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="66.236" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b8" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-117.764"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b17" Margin="132.554,321.736,0,269.264" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="66.236" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b17" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-117.764"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b6" Margin="222.876,112.704,0,478.296" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="66.237" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b6" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-117.764"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b35" Margin="259.005,183.242,0,407.758" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="66.237" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b35" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-117.764"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b07" Margin="96.425,529.048,0,61.952" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="66.236" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b07" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-117.764"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b03" Margin="132.554,599.586,0,-8.586" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="66.236" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b03" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-117.764"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b019" Margin="221.156,390.553,0,200.447" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="66.236" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b019" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-117.764"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b022" Margin="257.285,461.091,0,129.909" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="66.237" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b022" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-117.764"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b24" Margin="347.608,252.059,0,338.941" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="66.236" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b24" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-117.764"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b27" Margin="383.737,322.596,0,268.404" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="66.236" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b27" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-117.764"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b034" Margin="346.747,530.768,0,60.232" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="66.237" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b034" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-117.764"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b038" Margin="382.876,601.307,0,-10.307" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="66.237" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b038" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-117.764"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b029" Margin="471.478,392.275,0,198.725" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="66.237" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b029" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-117.764"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b043" Margin="507.608,462.811,0,128.189" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="66.236" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b043" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-117.764"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b45" Margin="597.93,253.779,0,337.221" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="66.237" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b45" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-117.764"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b48" Margin="634.059,324.318,0,266.682" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="66.237" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b48" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-117.764"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b40" Margin="471.478,111.844,0,479.156" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="66.237" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b40" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-117.764"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b42" Margin="507.608,182.382,0,408.618" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="66.236" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b42" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-117.764"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b014" Margin="80.206,406.898,0,184.102" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b014" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-149.878"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b09" Margin="146.443,447.328,0,143.672" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b09" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-149.878"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b05" Margin="204.937,546.253,0,44.747" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b05" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-149.878"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b036" Margin="271.174,586.683,0,4.317" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b036" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-149.878"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b20" Margin="204.937,266.683,0,324.317" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b20" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-149.878"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b21" Margin="271.174,307.113,0,283.887" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b21" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-149.878"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b025" Margin="329.669,406.038,0,184.962" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.006" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b025" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-149.878"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b031" Margin="395.905,446.468,0,144.532" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b031" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-149.878"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b041" Margin="455.26,545.392,0,45.608" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b041" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-149.878"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b37" Margin="333.109,128.188,0,462.812" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b37" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-149.878"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b33" Margin="398.486,169.479,0,421.521" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b33" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-149.878"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b30" Margin="456.98,269.264,0,321.736" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b30" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-149.878"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b47" Margin="523.217,309.694,0,281.306" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b47" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-149.878"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b046" Margin="582.572,408.618,0,182.382" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b046" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-149.878"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b13" Margin="19.991,307.973,0,283.027" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b13" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-149.878"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="b4" Margin="143.862,169.479,0,421.521" Style="{StaticResource ButtonStyle2}" ClickMode="Press" Width="72.007" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="15" VerticalAlignment="Center" Click="click_b4" Opacity="0.1">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="-149.878"/>
+                </Button.RenderTransform>
+            </Button>
+            <Image Margin="143,423,597,158" Source="Dot_Final.png" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Image Margin="77,385,663,196" Source="Dot_Final.png" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Image Margin="16,423,724,158" Source="Dot_Final.png" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Image Margin="103,490,637,91" Source="Dot_Final.png" Stretch="Fill" Height="15" Width="15" RenderTransformOrigin="0.356,0.417" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Image Margin="51,490,689,91" Source="Dot_Final.png" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Image Margin="140,282,600,299" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="79,323,661,258" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="15,285,725,296" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="105,214,635,367" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="51,215,689,366" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="267,283,473,298" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="-180"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="329,321,411,260" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="-180"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="390,284,350,297" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="-180"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="300,215,440,366" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="-180"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="356,216,384,365" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="-180"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="268,424,472,157" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Image Margin="332,385,408,196" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Image Margin="303,496,437,85" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Image Margin="355,496,385,85" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Image Margin="268,145,472,436" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Image Margin="204,186,536,395" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Image Margin="143,145,597,436" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Image Margin="230,76,510,505" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Image Margin="179,76,561,505" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Image Margin="392,145,348,436" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="455,183,285,398" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="516,145,224,436" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="423,79,317,502" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="482,79,258,502" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="327,107,413,474" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="204,246,536,335" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Image Margin="174,355,566,226" Source="Dot_Final.png" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Image Margin="204,464,536,117" Source="Dot_Final.png" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Image Margin="232,353,508,228" Source="Dot_Final.png" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Image Margin="233,355,507,226" Source="Dot_Final.png" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Image Margin="516,426,224,155" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="393,423,347,158" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="481,355,259,226" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="453,461,287,120" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="426,355,314,226" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="518,286,222,295" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="180"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="453,247,287,334" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="180"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="-19,352,759,229" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="552,213,188,368" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="141,565,599,16" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="268,563,472,18" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="175,632,565,-51" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="204,524,536,57" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="234,632,506,-51" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleY="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="332,599,408,-18" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Image Margin="515,563,225,18" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="180"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="391,565,349,16" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="180"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="481,632,259,-51" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="180"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="453,525,287,56" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="180"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="428,632,312,-51" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="180"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="642,425,98,156" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Image Margin="679,355,61,226" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Image Margin="642,284,98,297" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Image Margin="611,218,129,363" Source="Dot_Final.png" RenderTransformOrigin="-2.289,2.769" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Image Margin="582,322,158,259" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="578,386,162,195" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="551,493,189,88" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="610,494,130,87" Source="Dot_Final.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Button x:Name="s_name" BorderBrush="DarkRed" Content="Player 1" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Height="63" Margin="-253,459,842,74" Style="{StaticResource ButtonStyle1}" VerticalAlignment="Center" Width="166" ClickMode="Press" FontSize="40" Foreground="#FF0A538F">
+                <Button.Flyout>
+                    <Flyout d:IsHidden="True">
+                        <StackPanel Height="145" Width="311">
+                            <Grid Height="227">
+                                <Button x:Name="Player1_button" HorizontalAlignment="Center" Margin="113,92,137,100" Content="Save" Click="enter_sname"/>
+                                <TextBlock HorizontalAlignment="Center" Style="{StaticResource BaseTextBlockStyle}" Width="169" Margin="68,0,74,191">
+                        			<Run Text="Please Enter Your Name:"/>
+                                </TextBlock>
+                                <TextBox x:Name="Player1_Name" HorizontalAlignment="Center" Height="8" Margin="23,49,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="262"/>
+                            </Grid>
+                        </StackPanel>
+                    </Flyout>
+                </Button.Flyout>
+
+
+
+            </Button>
+            <Button x:Name="b_name" BorderBrush="Blue" Content="Player 2" HorizontalAlignment="Center" Height="63" Margin="795,458,-206,75" Style="{StaticResource ButtonStyle5}" VerticalAlignment="Center" Width="166" ClickMode="Press" FontWeight="Light" FontSize="40">
+                <Button.Flyout>
+                    <Flyout d:IsHidden="True">
+                        <StackPanel Height="145" Width="311">
+                            <Grid Height="227">
+                                <Button x:Name="Player2_button" HorizontalAlignment="Center" Margin="113,92,137,100" Content="Save" Click="enter_bname"/>
+                                <TextBlock HorizontalAlignment="Center" Style="{StaticResource BaseTextBlockStyle}" Width="169" Margin="68,0,74,191">
+                        			<Run Text="Please Enter Your Name:"/>
+                                </TextBlock>
+                                <TextBox x:Name="Player2_Name" HorizontalAlignment="Center" Height="8" Margin="23,49,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="262"/>
+                            </Grid>
+                        </StackPanel>
+                    </Flyout>
+                </Button.Flyout>
+            </Button>
+        </Grid>
+        <!-- Back button and page title -->
+    </Grid>
+</Page>
